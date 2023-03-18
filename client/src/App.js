@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <h3>{message}</h3>
+          <h3 class="text-3xl font-bold underline">{message}</h3>
       </header>
     </div>
   );
