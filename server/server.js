@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const config = require('dotenv').config()
+const SPOONACULAR_API = process.env.SPOONACULAR_API
 
 const app = express();
 
