@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.json({ message: "Hello, this is the homepage of the server!"})
+});
+
 app.get('/message', (req, res) => {
     res.json({ message: "Hello, this is the server!"})
 });
