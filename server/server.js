@@ -4,7 +4,9 @@ const app = express();
 require('./routes/searchRecipeRoutes')(app);
 const PORT = process.env.PORT || 8000;
 
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000/', 'https://recipes-app-gold.vercel.app/']
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => {
