@@ -7,7 +7,7 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://recipes-app-production-ae73.up.railway.app")
+    fetch("http://localhost:8000/")
       .then((res) => res.json())
       .then((data) => setMessage(data.message));
   }, []);
