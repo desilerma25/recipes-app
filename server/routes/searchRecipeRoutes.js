@@ -1,10 +1,12 @@
 require('dotenv').config();
 const SPOONACULAR_API_SECRET = process.env.SPOONACULAR_API
 const baseUrl = 'https://api.spoonacular.com'
+const cors = require('cors');
 
 module.exports = (app) => {
+
     app.get('/cuisines', (req, res) => {
-        res.send([ 
+        res.json([ 
             "african",
             "american",
             "british",

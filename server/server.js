@@ -4,9 +4,13 @@ const app = express();
 require('./routes/searchRecipeRoutes')(app);
 const PORT = process.env.PORT || 8000;
 
-app.use(cors({
-    origin: ['http://localhost:3000', 'https://recipes-app-gold.vercel.app']
-}));
+app.use((req, res) => {
+    const allowedOrigins = ['http://localhost:3000', 'https://recipes-app-gold.vercel.app'];
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+         res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+});
 app.use(express.json());
 
 app.get('/', (req, res) => {
