@@ -1,18 +1,6 @@
 require('dotenv').config();
 const SPOONACULAR_API_SECRET = process.env.SPOONACULAR_API
 const baseUrl = 'https://api.spoonacular.com'
-// const cors = require('cors');
-
-// var whitelist = ['http://localhost:3000', 'https://recipes-app-gold.vercel.app']
-// var corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
 
 module.exports = (app) => {
 
