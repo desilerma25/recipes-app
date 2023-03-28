@@ -10,16 +10,16 @@ export default function Home() {
     const [cuisineRecipes, setCuisineRecipes] = useState([]);
 
     useEffect(() => {
-        fetch("https://recipes-app-production-ae73.up.railway.app/cuisines")
-        // fetch("http://localhost:8000/cuisines")
+        // fetch("https://recipes-app-production-ae73.up.railway.app/cuisines/")
+        fetch("http://localhost:8000/cuisines/")
         .then((res) => res.json())
         .then((data) => setCuisines(data));
     }, []);
 
     const displayCuisineRecipes = (cuisine) => {
         try {
-            // fetch(`http://localhost:8000/${cuisine}/recipes`)
-            fetch(`https://recipes-app-production-ae73.up.railway.app/${cuisine}/recipes`)
+            // fetch(`http://localhost:8000/${cuisine}/recipes/`)
+            fetch(`https://recipes-app-production-ae73.up.railway.app/${cuisine}/recipes/`)
             .then((res) => res.json())
             .then((data) => setCuisineRecipes(data))
             console.log({cuisineRecipes})

@@ -39,7 +39,7 @@ module.exports = (app) => {
     });
 
     app.get('/:cuisine/recipes', (req, res) => {
-        fetch(baseUrl + `/recipes/complexSearch?apiKey=${SPOONACULAR}&cuisine=${req.params.cuisine}`)
+        fetch(baseUrl + `/recipes/complexSearch?apiKey=${SPOONACULAR}&cuisine=${req.params.cuisine}/`)
         .then((response) => response.json())
         .then((data) => res.json(data))
         .catch((error) => {
@@ -49,7 +49,7 @@ module.exports = (app) => {
     });
 
     app.get('/recipe/:id', (req, res) => {
-        fetch(baseUrl + `/recipes/${req.params.id}/information?apiKey=${SPOONACULAR}&includeNutrition=false`)
+        fetch(baseUrl + `/recipes/${req.params.id}/information?apiKey=${SPOONACULAR}&includeNutrition=false/`)
         .then((response) => response.json())
         .then((data) => res.json({data}))
         .catch((error) => {
