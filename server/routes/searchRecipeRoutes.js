@@ -1,5 +1,5 @@
 require('dotenv').config();
-const SPOONACULAR_API_SECRET = process.env.SPOONACULAR_API
+const SPOONACULAR = process.env.SPOONACULAR_KEY
 const baseUrl = 'https://api.spoonacular.com'
 const corsMiddleware = require('../config/cors');
 
@@ -39,9 +39,9 @@ module.exports = (app) => {
     });
 
     app.get('/:cuisine/recipes', (req, res) => {
-        fetch(baseUrl + `/recipes/complexSearch?apiKey=${SPOONACULAR_API_SECRET}&cuisine=${req.params.cuisine}`)
+        fetch(baseUrl + `/recipes/complexSearch?apiKey=${SPOONACULAR}&cuisine=${req.params.cuisine}`)
         .then((response) => response.json())
-        .then((data) => res.send(data))
+        .then((data) => res.json(data))
         .catch((error) => {
             console.error('error in execution', error)
             res.send(error)
@@ -49,9 +49,9 @@ module.exports = (app) => {
     });
 
     app.get('/recipe/:id', (req, res) => {
-        fetch(baseUrl + `/recipes/${req.params.id}/information?apiKey=${SPOONACULAR_API_SECRET}&includeNutrition=false`)
+        fetch(baseUrl + `/recipes/${req.params.id}/information?apiKey=${SPOONACULAR}&includeNutrition=false`)
         .then((response) => response.json())
-        .then((data) => res.send({data}))
+        .then((data) => res.json({data}))
         .catch((error) => {
             console.error('error in execution', error)
             res.send(error)
